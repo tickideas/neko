@@ -1,8 +1,10 @@
 services:
   neko:
-    image: "ghcr.io/m1k1o/neko/firefox:latest"
+    image: "ghcr.io/m1k1o/neko/brave"
     restart: "unless-stopped"
-    shm_size: "2gb"
+    cap_add:
+      - SYS_ADMIN
+    shm_size: 2g
     ports:
       - "8084:8080"
       - "52000-52100:52000-52100/udp"
